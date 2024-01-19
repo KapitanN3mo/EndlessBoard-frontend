@@ -65,13 +65,12 @@ const Registration = () => {
               defaultValue="female"
               name="radio-buttons-group" >
             <FormControlLabel 
-            alue="female" 
-            control={<Radio />} l
-            abel="Female" />
+            value="female" 
+            control={<Radio />} 
+            label="Женский" />
             <FormControlLabel 
             value="male" 
-            control={<Radio />} l
-            abel="Male" />
+            control={<Radio />} label="Мужской" />
             </RadioGroup>
            </FormControl>
            <Stack spacing={2} direction="row">
