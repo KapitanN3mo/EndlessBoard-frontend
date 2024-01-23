@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css'
-import Registration from './components/registration';
+import Comment from './components/comment';
 
 function App() {
   return (
     <div>
-      <Registration />
+      <Comment />
     </div>
   );
 }
