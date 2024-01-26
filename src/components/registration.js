@@ -74,7 +74,7 @@ const Registration = () => {
             </RadioGroup>
            </FormControl>
            <Stack spacing={2} direction="row" justifyContent={"flex-end"} >
-             <Button variant="contained">Регистрация!</Button>
+             <Button variant="contained">Регистрация</Button>
           </Stack>
     </div>
   );
