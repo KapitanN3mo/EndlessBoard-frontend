@@ -1,17 +1,20 @@
 import React from 'react'
 import './App.css'
-import AdCard from './components/adCard.js';
+import Registration from './components/registration';
+import Header from './components/Header.js';
+import AdCard from './components/adCard';
+import Grid from '@mui/material/Grid';
+
 
 function App() {
   return (
 
     <div>
-      
-      <AdCard
-      imgLink={"https://jjji.ru/1920x1280"}
-      adTitle={"This is Title"}
-      adText={"This is some text, yeeeee baby"}
-      /> 
+      <Header isLoggedIn={true} />
+
+      <Grid container justifyContent="center" spacing={5} marginTop={1}>
+
+      </Grid>
     </div>
   );
 }

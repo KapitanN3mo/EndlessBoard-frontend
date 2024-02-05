@@ -21,12 +21,12 @@ export default function AdCard({imgLink,adTitle,adText}) {
   const descriptionElementRef = React.useRef(null);
 
   return (
-    <div className='container'>
-    <Card sx={{ maxWidth: 345 }}>
+    
+    <Card sx={{ maxWidth: 500, minWidth: 500, minHeight:300 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="300rem"
           image= {imgLink}
           alt="green iguana"
         />
@@ -86,6 +86,6 @@ export default function AdCard({imgLink,adTitle,adText}) {
       </Dialog>
       </CardActions>
     </Card>
-    </div>
+    
   );
 }
