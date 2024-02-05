@@ -7,7 +7,8 @@
 
 # testing
 /coverage
-
+/.fleet
+/.index
 # production
 /build
 

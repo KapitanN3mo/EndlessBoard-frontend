@@ -1,25 +1,24 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import {useRef, useState} from 'react';
+import {useState} from 'react';
 
 export default function CreatePost() {
   const [message, setMessage] = useState('');
-  const comments = message;
-  const Upload = () => <input type="file" />
-  const [url, setUrl] = useState();
-  const uploadRef = useRef();
- 
-  
-  
+  const Upload = () => <input type="file" class="form-control" onChange={handleChange} />
+
+  const [file, setFile] = useState();
+  function handleChange(e) {
+    console.log(e.target.files);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
   
   return (
-    <Container>
-      <Upload ref={uploadRef} onUpload={setUrl}>
-      </Upload>
-      <Card style={{ width: '18rem' }}>
-        
-        <Card.Img variant="top" src={url} />
+    <Container style={{ padding: "10px 30% 10px",background:"gray"}}>
+
+      <Card style={{ width: '25rem',background:"black",color:"red",display: "flex",position: "relative",padding: "10px"}}>
+        <Upload/>
+        <Card.Img variant="top" src={file} />
         
         <Card.Body>
           <Card.Title>Описание Поста :</Card.Title>
@@ -28,9 +27,10 @@ export default function CreatePost() {
                 placeholder="Message"
                 value={message}
                 onChange={e => setMessage(e.target.value)}
+                rows="10" cols="44"
               />
           </Card.Text>
-            <Button variant="primary">Опубликовать Пост</Button>
+          <Button  variant="primary">Опубликовать Пост</Button>
         </Card.Body>
       </Card>
     </Container>
