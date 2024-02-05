@@ -88,7 +88,7 @@ const handleKeyDown = (event) => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <InfinitySymb/>
@@ -107,7 +107,7 @@ const handleKeyDown = (event) => {
               textDecoration: 'none',
             }}
           >
-           Endless Board {msg}
+           Endless Board
           </Typography>
 
           <Search>

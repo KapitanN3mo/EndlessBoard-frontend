@@ -8,12 +8,12 @@ import "./regform.css"
 
 export default function AdCard({imgLink,adTitle,adText}) {
   return (
-    <div className='container'>
-    <Card sx={{ maxWidth: 345 }}>
+    
+    <Card sx={{ maxWidth: 500, minWidth: 500, minHeight:300 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="300rem"
           image= {imgLink}
           alt="green iguana"
         />
@@ -32,6 +32,6 @@ export default function AdCard({imgLink,adTitle,adText}) {
         </Button>
       </CardActions>
     </Card>
-    </div>
+    
   );
 }
