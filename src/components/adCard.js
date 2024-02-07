@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import "./regform.css"
 
-export default function AdCard({imgLink,adTitle,adText}) {
+export default function AdCard({imgLink,adTitle,adText,offset_setter}) {
   return (
     
     <Card sx={{ maxWidth: 500, minWidth: 500, minHeight:300 }}>
