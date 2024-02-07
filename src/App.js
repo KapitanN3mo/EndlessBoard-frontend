@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import { useEffect } from 'react';
 import servIp from './serverConfigData';
 
+
 function App() {
 
 const [showPosts,setShowPosts] = useState ([]);
@@ -38,12 +39,12 @@ function scrollListener(e){
 }
   const showingPosts = showPosts.map((post) => <Grid item key={post.id}><AdCard adTitle={post.name} adText={post.text} key={post.id}></AdCard></Grid>); // id обязательно надо для reacta
   return (
+
     <div>
       <Header isLoggedIn={true} />
       <Grid   container justifyContent="center" spacing={5} marginTop={1}>
         {showingPosts}
       </Grid>
-
     </div>
   );
 }

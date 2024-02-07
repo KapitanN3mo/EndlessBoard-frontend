@@ -15,14 +15,7 @@ export default function Comment() {
   };
 
   const descriptionElementRef = React.useRef(null);
-  React.useEffect(() => {
-    if (open) {
-      const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
-        descriptionElement.focus();
-      }
-    }
-  }, [open]);
+  
   return (
     <div>
       <Button onClick={handleClickOpen()}>Посмотреть комментарии</Button>
