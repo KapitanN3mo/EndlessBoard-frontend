@@ -7,11 +7,25 @@ import { Button, CardActionArea, CardActions, Dialog, DialogActions,  DialogCont
   DialogContentText, DialogTitle, TextField} from '@mui/material';
 import "./regform.css"
 
-export default function AdCard({imgLink,adTitle,adText}) {
+export default function AdCard({imgLink,adTitle,adText,post_id}) {
   const [open, setOpen] = React.useState(false);
+const [showCom,setShowCom] = React.useState([]);
 
   const handleClickOpen = () => () => {
     setOpen(true);
+    let url = new URL("post/comments", "http://192.168.90.205");  // конструктор URL адресов
+    console.log(`Request! PostId ${post_id}`)
+    url.searchParams.set('post_id', post_id);
+    let xhrFirstReq = new XMLHttpRequest();
+    xhrFirstReq.open('GET', url);
+    xhrFirstReq.setRequestHeader("Content-Type", "application/json")
+    xhrFirstReq.responseType = 'json';
+    xhrFirstReq.send();
+    xhrFirstReq.onreadystatechange = function () {     // если не пашет выводить в консоль console.log
+      if (xhrFirstReq.readyState != 4) return;
+      let responseFirst = xhrFirstReq.response;
+      setShowCom(responseFirst);
+    }
   };
 
   const handleClose = () => {
@@ -19,6 +33,8 @@ export default function AdCard({imgLink,adTitle,adText}) {
   };
 
   const descriptionElementRef = React.useRef(null);
+
+  const comms = showCom.map((comms) => <p>{comms.id}. {comms.text}</p>)
 
   return (
     
@@ -54,21 +70,7 @@ export default function AdCard({imgLink,adTitle,adText}) {
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
-            <p>Автор:11111111111111111111111111111111111111111111111</p>
+           {comms}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
